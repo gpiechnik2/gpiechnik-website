@@ -1,21 +1,24 @@
 ---
-title: "What are the types of deployment"
-publishedAt: 2023-06-24
-description: "🚀 Mastering Deployment Strategies: Rolling, Canary, and Blue/Green 🚀"
-slug: "types-of-deployment"
+title: "What is Apache Kafka and how to perform performance tests on it (Part 1)"
+publishedAt: 2023-06-25
+description: "🔥 Diving Deep into Event Streaming with Apache Kafka 🔥"
+slug: "what-is-apache-kafka-and-how-to-perform-performance-tests-on-it-one"
 isPublish: true
 ---
 
-## Types of deployment
+## What is Apache Kafka and how to perform performance tests on it (Part 1)
 
-In the dynamic world of IT, updating applications and introducing new features is the name of the game. But how do you ensure smooth transitions without disrupting user experience? Enter deployment strategies! Dive into this guide to explore three of the most popular deployment types that IT companies swear by.
+In the digital age, real-time data processing is no longer a luxury but a necessity. Enter event streaming, a technique that's revolutionizing the way data is exchanged in real-time. But what's the magic behind it? Let's unravel the mysteries of Apache Kafka, the powerhouse of event streaming.
 
 📌 Inside this Guide:
 
-- Rolling Deployment Demystified: Understand the step-by-step process of updating servers and why this strategy is a favorite for applications with minor updates.
-- Canary Deployment Unveiled: Discover how this user-centric approach tests the waters with a select group before a full-scale launch.
-- Blue/Green Deployment Explained: Dive into the world of dual environments and learn how traffic redirection ensures seamless transitions between versions.
+- Event Streaming 101: Understand the essence of event streaming and its significance in today's fast-paced IT landscape.
+- Apache Kafka Unveiled: Dive into the world of Kafka and explore its robust architecture designed for high-speed data transfer.
+- Producers, Consumers, and Kafka Cluster: Discover the key players in the Kafka ecosystem and their roles in ensuring seamless data flow.
+- The Intricacies of Kafka Architecture: From Brokers to ZooKeeper, get a comprehensive understanding of how Kafka's components work in harmony.
+- Topics & Partitions Explained: Delve into the heart of Kafka's data management system and learn how topics and partitions ensure efficient data distribution.
+- A Closer Look at Producers & Consumers: Revisit the roles of producers and consumers, and understand the genius of consumer groups in optimizing data consumption.
 
-Whether you're an IT professional, a budding developer, or a business owner looking to understand the best deployment strategy for your organization, this guide offers insights into the pros and cons of each method. Equip yourself with the knowledge to make informed decisions and ensure smooth application updates. 🔄🌐🔧
+Whether you're a developer, a data enthusiast, or someone curious about the world of event streaming, this guide offers a deep dive into Apache Kafka's world. Equip yourself with the knowledge to harness the power of real-time data processing. 🚀📊🔍
 
-Link: https://medium.com/@gpiechnik/what-are-the-types-of-deployment-785da8259e67
+Link: https://medium.com/@gpiechnik/what-is-apache-kafka-and-how-to-perform-performance-tests-on-it-part-1-b4b71edb6286
