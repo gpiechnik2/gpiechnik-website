@@ -1,0 +1,64 @@
+---
+import isValidEmail from "@/utils/validateEmail";
+import mailchimp from '@mailchimp/mailchimp_marketing';
+
+const errors = { email: "", subscribtion: "", subscribtionSuccess: "" };
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const email = data.get("email");
+
+    if (typeof email !== "string" || !isValidEmail(email)) {
+      errors.email = "Email is not valid. ";
+    }
+    const hasErrors = Object.values(errors).some((msg) => msg);
+
+    if (!hasErrors) {
+      mailchimp.setConfig({
+        apiKey: "77d619ce71bd9131cba90abe31e72116-us10",
+        server: "us10",
+      });
+
+      const run = async () => {
+        const response = await mailchimp.lists.batchListMembers("816e41a839", {
+          members: [
+            {
+              "email_address": email,
+              "status": "subscribed",
+            },
+          ],
+        });
+
+        if (response.error_count) {
+          errors.subscribtion =
+            "There was an error with the subscription. Please try again.";
+            errors.subscribtionSuccess = ""
+        } else { 
+            errors.subscribtion = ""
+          errors.subscribtionSuccess = "Subscribed!";
+        }
+      };
+
+      run();
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+    errors.subscribtion =
+        "There was an error with the subscription. Please try again.";
+    }
+    errors.subscribtionSuccess = ""
+  }
+}
+---
+
+<form method="POST" class="flex flex-col gap-4">
+  <label class="group flex max-w-sm cursor-pointer flex-col gap-2">
+    <p class="pb-2">Email</p>
+    <input type="email" name="email" required class="rounded-md border border-neutral-700 p-4"/>
+  </label>
+  {errors.email && <p>{errors.email}</p>}
+  <button class="group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border border-neutral-700 p-4 hover:bg-violet-600 active:bg-violet-700 text-white">Subscribe</button>
+  <p class="text-red-600">{errors.subscribtion}</p>
+  <p class="text-green-500">{errors.subscribtionSuccess}</p>
+
+</form>
