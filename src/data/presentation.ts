@@ -13,8 +13,8 @@ type Presentation = {
 
 const presentation: Presentation = {
   mail: "grzegorz.piechnik99@gmail.com",
-  title: "Hi, I’m Grzegorz 👋",
-  profile: "/grzegorz-piechnik-photo.png",
+  title: "Hi, I’m Grzegorz Piechnik 👋",
+  profile: "/grzegorz-piechnik-photo.webp",
   description:
     "Hi, I am a *Performance Engineer* with years of experience in application testing and a *k6 Champion*. I help companies improve the performance of their applications, *educate*, create content on *youtube*, write on my *blog* and *create opensource* tools. After hours, I am involved in cybersecurity.",
   socials: [
