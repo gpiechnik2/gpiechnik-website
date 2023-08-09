@@ -54,7 +54,7 @@ if (Astro.request.method === "POST") {
 <form method="POST" class="flex flex-col gap-4">
   <label class="group flex max-w-sm cursor-pointer flex-col gap-2">
     <p class="pb-2">Email</p>
-    <input type="email" name="email" required class="rounded-md border border-neutral-700 p-4"/>
+    <input type="email" name="email" required class="rounded-md border border-neutral-700 p-4 text-black"/>
   </label>
   {errors.email && <p>{errors.email}</p>}
   <button class="group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border border-neutral-700 p-4 hover:bg-violet-600 active:bg-violet-700 text-white">Subscribe</button>
