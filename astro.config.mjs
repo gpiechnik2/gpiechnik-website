@@ -15,5 +15,6 @@ export default defineConfig({
       theme: "nord",
       wrap: false
     }
-  }
+  },
+  output: 'server'
 });
