@@ -10,6 +10,10 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
+import NewsletterForm from "@/components/NewsletterForm.astro";
+
+
+export const prerender = true
 
 const posts = (await getCollection("posts")).sort(function (first, second) {
   return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
@@ -71,12 +75,12 @@ const courses = []
       </section>
     </article>
 
-    <!-- <article class="flex flex-col gap-8">
+    <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-lg text-neutral-100">Newsletter</h3>
       </header>
         <NewsletterForm/>
-    </article> -->
+    </article>
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">

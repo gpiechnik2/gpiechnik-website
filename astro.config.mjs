@@ -3,8 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import { SITE_URL } from "./src/data/config";
-// import cloudflare from '@astrojs/cloudflare';
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,12 +16,8 @@ export default defineConfig({
       wrap: false
     }
   },
-  // output: 'server',
-  // adapter: cloudflare({
-  //   mode: "advanced"
-  // })
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: cloudflare({
+    mode: "advanced"
+  })
 });
