@@ -1,47 +1,153 @@
 ---
-import isValidEmail from "@/utils/validateEmail";
+// import isValidEmail from "@/utils/validateEmail";
 
+// const errors = { email: "" };
+// if (Astro.request.method === "POST") {
+//     const data = await Astro.request.formData();
+//     const email = data.get("email");
 
-const errors = { email: "" };
-if (Astro.request.method === "POST") {
-    const data = await Astro.request.formData();
-    const email = data.get("email");
+//     if (typeof email !== "string" || !isValidEmail(email)) {
+//       errors.email = "Email is not valid. ";
+//     }
+//     const hasErrors = Object.values(errors).some((msg) => msg);
 
-    if (typeof email !== "string" || !isValidEmail(email)) {
-      errors.email = "Email is not valid. ";
-    }
-    const hasErrors = Object.values(errors).some((msg) => msg);
+//     if (!hasErrors) {
+//       const apiKey = import.meta.env.MAILCHIMP_API_KEY
+//       const server = "us10"
+//       const listNumber = "816e41a839"
 
-    if (!hasErrors) {
-      const apiKey = import.meta.env.MAILCHIMP_API_KEY
-      const server = "us10"
-      const listNumber = "816e41a839"
-
-      const url = "https://" + server + ".api.mailchimp.com/3.0/lists/" + listNumber;
-      const postData = JSON.stringify({
-        members:[{
-          email_address: email,
-          status: "subscribed"
-        }]
-      })
-      const options = {
-        method:"POST",
-        headers: {
-          Authorization: 'Basic ' + Buffer.from('any:' + apiKey).toString('base64'),
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: postData
-      }
-      await fetch(url, options)
-    }  
-}
-
+//       const url = "https://" + server + ".api.mailchimp.com/3.0/lists/" + listNumber;
+//       const postData = JSON.stringify({
+//         members:[{
+//           email_address: email,
+//           status: "subscribed"
+//         }]
+//       })
+//       const options = {
+//         method:"POST",
+//         headers: {
+//           Authorization: 'Basic ' + Buffer.from('any:' + apiKey).toString('base64'),
+//           'Content-Type': 'application/json;charset=utf-8'
+//         },
+//         body: postData
+//       }
+//       await fetch(url, options)
+//     }
+// }
 ---
-<form method="POST" class="flex flex-col gap-4">
-  <label class="group flex max-w-sm cursor-pointer flex-col gap-2">
-    <p class="pb-2">Email</p>
-    <input type="email" name="email" required class="rounded-md border border-neutral-700 p-4 text-black"/>
-  </label>
-  {errors.email && <p>{errors.email}</p>}
-  <button class="group flex max-w-sm cursor-pointer flex-col gap-2 rounded-md border border-neutral-700 p-4 hover:bg-violet-600 active:bg-violet-700 text-white">Subscribe</button>
+
+<style>
+  #gumroad-follow-form-embed {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    min-width: 0px;
+    max-width: 100%;
+    vertical-align: bottom;
+    scrollbar-color: rgb(var(--color) / 0.5) rgb(var(--color) / 0.1);
+    --border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+    --outline: 0.125rem solid rgb(var(--accent));
+    --gray-1: 0.1;
+    --gray-2: 0.2;
+    --gray-3: 0.5;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    grid-auto-columns: max-content;
+    align-items: center;
+  }
+  #gumroad-follow-form-embed-button {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    min-width: 0px;
+    max-width: 100%;
+    vertical-align: bottom;
+    scrollbar-color: rgb(var(--color) / 0.5) rgb(var(--color) / 0.1);
+    /* --border: solid 0.0625rem rgb(var(--color) / var(--border-alpha)); */
+    --outline: 0.125rem solid rgb(var(--accent));
+    --gray-1: 0.1;
+    --gray-2: 0.2;
+    --gray-3: 0.5;
+    background: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    --line-height: 1.5rem;
+    padding: 0.75rem 1rem;
+    /* border: solid 0.0625rem rgb(var(--color) / var(--border-alpha)); */
+    color: currentcolor;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: ;
+    transition-timing-function: ;
+    transition-delay: ;
+    transition-property: all;
+    background-color: rgb(var(--primary));
+    color: rgb(var(--contrast-primary));
+    --active-bg: var(--body-bg);
+  }
+  #gumroad-follow-form-embed-button:hover {
+    transform: translate(-0.25rem, -0.25rem);
+    box-shadow: 0.25rem 0.25rem 0 rgb(var(--color));
+    background-color: rgb(var(--accent));
+    color: rgb(var(--contrast-accent));
+    --active-bg: var(--body-bg);
+  }
+  #gumroad-follow-form-embed-input {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    min-width: 0px;
+    max-width: 100%;
+    vertical-align: bottom;
+    scrollbar-color: rgb(var(--color) / 0.5) rgb(var(--color) / 0.1);
+    --gray-1: 0.1;
+    --gray-2: 0.2;
+    --gray-3: 0.5;
+    font-family: inherit;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    --line-height: 1.5rem;
+    border: solid 0.01rem grey;
+    border-radius: 0.25rem;
+    display: block;
+    width: 100%;
+    background-color: rgb(var(--filled));
+    color: rgb(var(--contrast-filled));
+    --active-bg: var(--body-bg);
+  }
+  #gumroad-follow-form-embed-input::placeholder {
+    color: rgb(var(--color) / 0.5);
+    color: rgb(var(--color) / 0.5);
+  }
+  #gumroad-follow-form-embed-input:focus-within {
+    outline: 0.125rem solid rgb(var(--accent));
+  }
+  #gumroad-follow-form-embed-input:read-only {
+    background-color: var(--body-bg);
+    background-color: var(--body-bg);
+  }
+</style><form
+  class="input-with-button"
+  action="https://app.gumroad.com/follow_from_embed_form"
+  method="post"
+  style="--accent:var(--accent);--contrast-accent:var(--contrast-accent)"
+  id="gumroad-follow-form-embed"
+>
+  <input type="hidden" name="seller_id" value="5165585759941" /><input
+    id="gumroad-follow-form-embed-input"
+    type="email"
+    placeholder="Your email address"
+    name="email"
+    value=""
+  /><button id="gumroad-follow-form-embed-button" class="primary" type="submit"
+    >Follow</button>
 </form>
