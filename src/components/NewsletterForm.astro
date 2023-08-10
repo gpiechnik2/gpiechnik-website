@@ -1,6 +1,6 @@
 ---
 import isValidEmail from "@/utils/validateEmail";
-import mailchimp from '@mailchimp/mailchimp_marketing';
+// import mailchimp from '@mailchimp/mailchimp_marketing';
 
 
 const errors = { email: "" };
@@ -13,25 +13,25 @@ if (Astro.request.method === "POST") {
     }
     const hasErrors = Object.values(errors).some((msg) => msg);
 
-    if (!hasErrors) {
-      mailchimp.setConfig({
-        apiKey: import.meta.env.MAILCHIMP_API_KEY,
-        server: "us10",
-      });
+    // if (!hasErrors) {
+    //   mailchimp.setConfig({
+    //     apiKey: import.meta.env.MAILCHIMP_API_KEY,
+    //     server: "us10",
+    //   });
 
-      const run = async () => {
-        await mailchimp.lists.batchListMembers("816e41a839", {
-          members: [
-            {
-              "email_address": email,
-              "status": "subscribed",
-            },
-          ],
-        });
-      };
+    //   const run = async () => {
+    //     await mailchimp.lists.batchListMembers("816e41a839", {
+    //       members: [
+    //         {
+    //           "email_address": email,
+    //           "status": "subscribed",
+    //         },
+    //       ],
+    //     });
+    //   };
 
-      run();
-    }
+    //   run();
+    // }
   
 }
 ---
