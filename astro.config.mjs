@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import { SITE_URL } from "./src/data/config";
-
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,5 +16,8 @@ export default defineConfig({
       wrap: false
     }
   },
-  output: 'server'
+  output: 'server',
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
