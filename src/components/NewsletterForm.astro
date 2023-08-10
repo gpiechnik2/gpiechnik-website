@@ -1,6 +1,6 @@
 ---
 import isValidEmail from "@/utils/validateEmail";
-import mailchimp from '@mailchimp/mailchimp_marketing';
+import https from "https";
 
 
 const errors = { email: "" };
@@ -14,25 +14,26 @@ if (Astro.request.method === "POST") {
     const hasErrors = Object.values(errors).some((msg) => msg);
 
     if (!hasErrors) {
-      mailchimp.setConfig({
-        apiKey: import.meta.env.MAILCHIMP_API_KEY,
-        server: "us10",
-      });
+      const apiKey = import.meta.env.MAILCHIMP_API_KEY
+      const server = "us10"
+      const listNumber = "816e41a839"
 
-      const run = async () => {
-        await mailchimp.lists.batchListMembers("816e41a839", {
-          members: [
-            {
-              "email_address": email,
-              "status": "subscribed",
-            },
-          ],
-        });
-      };
+      const url = "https://" + server + ".api.mailchimp.com/3.0/lists/" + listNumber;
+      const options = {
+        method:"POST",
+        auth: "anything:" + apiKey
+      }
+      const postData = JSON.stringify({
+        members:[{
+          email_address: email,
+          status: "subscribed"
+        }]
+      })
 
-      run();
-    }
-  
+      const request = https.request(url, options)
+      request.write(postData);
+      request.end();
+    }  
 }
 ---
 
