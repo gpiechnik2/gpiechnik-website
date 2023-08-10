@@ -15,7 +15,7 @@ if (Astro.request.method === "POST") {
 
     if (!hasErrors) {
       mailchimp.setConfig({
-        apiKey: process.env.MAILCHIMP_API_KEY,
+        apiKey: import.meta.env.MAILCHIMP_API_KEY,
         server: "us10",
       });
 
