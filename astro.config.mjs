@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import { SITE_URL } from "./src/data/config";
 import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,10 @@ export default defineConfig({
       wrap: false
     }
   },
+  // output: 'server',
+  // adapter: cloudflare({ mode: "advanced" }),
   output: 'server',
-  adapter: cloudflare({ mode: "advanced" }),
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
