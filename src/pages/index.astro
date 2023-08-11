@@ -11,6 +11,7 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
 import NewsletterForm from "@/components/NewsletterForm.astro";
+import CourseCard from "@/components/CourseCard.astro";
 
 
 export const prerender = true
@@ -19,7 +20,11 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
   return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
 });
 
-const courses = []
+const courses = [{
+  title: 'SQL Course for Newbies (PDF)',
+  description: "Comprehensive Beginner's Guide to SQL: A Detailed Course in PDF Format",
+  link: 'https://grzegorzpiechnik.gumroad.com/l/nnccol?layout=profile'
+}]
 ---
 
 <Layout>
@@ -88,21 +93,20 @@ const courses = []
       </header>
       {courses.length === 0 && <p>Soon, stay connected 👀...</p>}
 
-      <!-- <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
         {
           courses.length !== 0 &&
           courses
               .slice(0, 2)
-              .map((post) => (
-                <PostCard
-                  publishedAt={post.data.publishedAt}
-                  title={post.data.title}
-                  description={post.data.description}
-                  slug={post.slug}
+              .map((course) => (
+                <CourseCard
+                  title={course.title}
+                  description={course.description}
+                  link={course.link}
                 />
               ))
         }
-      </section> -->
+      </section>
     </article>
 
 
