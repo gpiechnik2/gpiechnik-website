@@ -19,4 +19,4 @@ In the world of programming and system administration, logs hold the key to unde
 
 Whether you're a programming virtuoso or a system maestro, Loki's transformative potential beckons. Venture into the article and unlock the mastery of log management with Loki's resounding melody. 🎶🔗📊
 
-Link: https://grzegorzpiechnik.gumroad.com/l/nnccol?layout=profile
+Link: https://medium.com/@gpiechnik/loki-effective-logging-and-log-aggregation-with-grafana-c3356e7f13ad
