@@ -12,10 +12,10 @@ In the world of programming and system administration, logs hold the key to unde
 
 🎯 Key Highlights Await:
 
-Orchestrating Logs: Discover how Loki streamlines log collection and storage, echoing Prometheus but with a twist.
-Power of Labels: Explore Loki's indexing prowess and its strategic trade-off between performance and analysis depth.
-Operational Ensemble: Peek into Loki's trio of agents — Promtail, Loki, and Grafana — and their harmonious role in the log symphony.
-Real-World Deployment: Uncover the practical deployment of Loki within the Docker universe, creating a visualization-rich landscape.
+- Orchestrating Logs: Discover how Loki streamlines log collection and storage, echoing Prometheus but with a twist.
+- Power of Labels: Explore Loki's indexing prowess and its strategic trade-off between performance and analysis depth.
+- Operational Ensemble: Peek into Loki's trio of agents — Promtail, Loki, and Grafana — and their harmonious role in the log symphony.
+- Real-World Deployment: Uncover the practical deployment of Loki within the Docker universe, creating a visualization-rich landscape.
 
 Whether you're a programming virtuoso or a system maestro, Loki's transformative potential beckons. Venture into the article and unlock the mastery of log management with Loki's resounding melody. 🎶🔗📊
 
