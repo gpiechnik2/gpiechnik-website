@@ -28,7 +28,7 @@ const presentation: Presentation = {
     },
     {
       label: "Youtube",
-      link: "https://github.com/gpiechnik2",
+      link: "https://www.youtube.com/@bugspace/featured",
     },
     {
       label: "Medium",
