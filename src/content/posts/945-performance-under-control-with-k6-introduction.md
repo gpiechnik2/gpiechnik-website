@@ -6,7 +6,7 @@ slug: "performance-under-control-with-k6-introduction"
 isPublish: true
 ---
 
-## 🚀 Performance under control with k6 – Part 1: Introduction 🚀
+## Performance under control with k6 – Part 1: Introduction
 
 Web applications are scaling at an unprecedented pace, and their performance, failover, and availability can't be compromised. Performance testing has become an indispensable step in the software development process. In light of this, I'm thrilled to launch the first post in an 8-part series that dives deep into k6 - a cutting-edge application performance testing tool crafted by Grafana Labs.
 
