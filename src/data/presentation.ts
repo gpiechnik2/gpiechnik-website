@@ -34,6 +34,10 @@ const presentation: Presentation = {
       label: "Medium",
       link: "https://medium.com/@gpiechnik",
     },
+    {
+      label: "Twitter",
+      link: "https://twitter.com/bugspaceyt",
+    },
   ],
 };
 
